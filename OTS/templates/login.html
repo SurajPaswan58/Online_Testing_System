@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+
+{% block title%} OTS - Login Form {%endblock title%}
+{% block top%}
+<a href="{% url 'OTS:registrationForm' %}">Signup</a>
+
+{%endblock %}
+{% block content %}
+<!--old code-->
+<!-- <div class="all-forms">
+    {% if loginError%}
+        <div id="error">{{loginError}}</div>
+    {% endif %}
+    <form action="{% url 'OTS:login' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-unit">
+            <label for="username">Username</label>
+            <input type="text" name="username">
+        </div>
+        <div class="form-unit">
+            <label for="password">Password</label>
+            <input type="password" name="password">
+        </div>
+        <div class="form-unit">
+            <input type="submit" value="Login">
+            <input type="reset" value="Clear">
+        </div>
+    </form>
+    
+    <div class="new-user">
+        <span>
+            New user
+        </span>
+
+        <div class="click-here-button">
+            <a href="{% url 'OTS:registrationForm' %}">Click Here</a>
+        </div>
+    
+
+    </div>
+   
+
+</div> -->
+
+<!--new code-->
+<div class="all-forms">
+    <div class="form-container">
+        {% if loginError%}
+        <div id="error">{{loginError}}</div>
+    {% endif %}
+     
+        <p class="title">Login</p>
+        <form class="form" action="{% url 'OTS:login' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="">		
+            </div>
+    
+            <button class="sign" type="submit" value="Sign in">Log in</button>
+
+              <!-- <div class="form-unit">
+                <input type="submit" value="Login" class="sign">    
+                <input type="reset" value="Clear">
+            </div> -->
+        </form>
+    
+        <div class="new-user">
+            <span> New user </span>
+    
+            <div class="click-here-button">
+                <a href="{% url 'OTS:registrationForm' %}">Click Here</a>
+            </div>
+        
+    
+        </div>
+    
+    
+    </div>
+
+</div>
+
+{% endblock %}
+
